@@ -15,7 +15,8 @@ export default function Login() {
         password: credentials.password,
       })
     );
-    const response = await fetch("http://localhost:5000/api/loginuser", {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL
+    const response = await fetch("${backendUrl}/loginuser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

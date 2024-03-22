@@ -2,7 +2,6 @@ import React from "react";
 import Delete from "@material-ui/icons/Delete";
 import { useCart, useDispatchCart } from "../components/ContextReducer";
 
-
 export default function Cart() {
   let data = useCart();
   let dispatch = useDispatchCart();
@@ -16,10 +15,12 @@ export default function Cart() {
  
 
   const handleCheckout = async () => {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL
+    console.log(backendUrl);
     
-    let userEmail = localStorage.getItem("userEmail");
-    let response = await fetch("http://localhost:5000/api/orderData", {
-      method: "POST",
+    let userEmail = localStorage.getItem("userEmail"); 
+    let response = await fetch(`${backendUrl}/orderData`, {
+      method: "POST", 
       headers: {
         "Content-Type": "application/json",
       },

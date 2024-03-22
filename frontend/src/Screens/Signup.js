@@ -23,7 +23,8 @@ export default function Signup() {
         password: credentials.password,
       })
     );
-    const response = await fetch("http://localhost:5000/api/createuser", {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL
+    const response = await fetch(`${backendUrl}/createuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

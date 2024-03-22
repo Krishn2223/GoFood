@@ -9,7 +9,8 @@ export default function Home() {
   const [foodItem, setFoodItem] = useState([]);
 
   const loadData = async () => {
-    let response = await fetch("http://localhost:5000/api/foodData", {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL
+    let response = await fetch(`${backendUrl}/foodData`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
