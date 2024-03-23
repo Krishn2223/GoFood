@@ -4,7 +4,7 @@ const port = 5000
 const mongoDB = require("./db");
 
 
-//giving permisson (have to write it)
+// giving permisson (have to write it)
 app.use((req,res,next)=>{
   res.setHeader("Access-Control-Allow-Origin","http://localhost:3000");
   res.header(
@@ -13,7 +13,7 @@ app.use((req,res,next)=>{
   );
   next();
 })
-/////////////////////
+///////////////////
 
 
 mongoDB();
