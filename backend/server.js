@@ -4,26 +4,25 @@ const app = express();
 const port = 5000;
 const mongoDB = require("./db");
 
-// CORS options
+// giving permisson (have to write it)
 const corsOptions = {
   origin: [
     "http://localhost:3000",
-    "https://go-food-frontend-seven.vercel.app",
-  ],
+    "https://go-food-frontend-seven.vercel.app/",
+  ], // Adjust this to match your frontend origin
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"],
 };
 
 app.use(cors(corsOptions));
+///////////////////
 
 mongoDB();
 app.use(express.json());
 
-// Use routes without '/api' prefix
-app.use(require("./Routes/CreateUser"));
-app.use(require("./Routes/DisplayData"));
-app.use(require("./Routes/OrderData"));
-
+app.use("/api", require("./Routes/CreateUser"));
+app.use("/api", require("./Routes/DisplayData"));
+app.use("/api", require("./Routes/OrderData"));
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
