@@ -1,5 +1,5 @@
 import React from "react";
-import Delete from "@material-ui/icons/Delete";
+import Delete from "@mui/icons-material/Delete";
 import { useCart, useDispatchCart } from "../components/ContextReducer";
 
 export default function Cart() {
@@ -12,15 +12,14 @@ export default function Cart() {
       </div>
     );
   }
- 
 
   const handleCheckout = async () => {
-    const backendUrl = process.env.REACT_APP_BACKEND_URL
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
     console.log(backendUrl);
-    
-    let userEmail = localStorage.getItem("userEmail"); 
+
+    let userEmail = localStorage.getItem("userEmail");
     let response = await fetch(`${backendUrl}/orderData`, {
-      method: "POST", 
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -30,7 +29,7 @@ export default function Cart() {
         order_date: new Date().toDateString(),
       }),
     });
-    console.log("Order Response",response)
+    console.log("Order Response", response);
     if (response.status === 200) {
       dispatch({ type: "DROP" });
     }
@@ -76,7 +75,9 @@ export default function Cart() {
           <h1 className="fs-2"> Total Price: {totalPrice}/-</h1>
         </div>
         <div>
-          <button className="btn bg-success mt-5" onClick={handleCheckout}>Check Out</button>
+          <button className="btn bg-success mt-5" onClick={handleCheckout}>
+            Check Out
+          </button>
         </div>
       </div>
     </div>
