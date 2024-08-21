@@ -7,8 +7,8 @@ const mongoDB = require("./db");
 // CORS options
 const corsOptions = {
   origin: [
-    // "http://localhost:3000",
-    "http://go-food-frontend-seven.vercel.app",
+    "http://localhost:3000",
+    "https://go-food-frontend-seven.vercel.app",
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"],
